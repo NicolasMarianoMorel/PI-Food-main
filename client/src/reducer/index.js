@@ -42,7 +42,7 @@ const initialState = {
           return e.diets.includes(payload.diets.toLowerCase())
           /* reduce((a,el) => {
            return !!(a || el.includes(payload.diets.toLowerCase()));
-          }, false) */
+          }, false) eeeeeeeee*/
         })}
         else {
           sortedRecipes = state.allRecipes;
