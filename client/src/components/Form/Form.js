@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { getTypes, postRecipe } from '../../actions';
 import { Link } from 'react-router-dom';
+import style from "./Form.module.css";
 
 export default function  Form() {
   const dispatch = useDispatch();
@@ -58,7 +59,7 @@ export default function  Form() {
     }
     
     return (
-      <form className="container" onSubmit={(e) => handleOnSubmit(e)}>
+      <form className={style.container} onSubmit={(e) => handleOnSubmit(e)}>
            <h1>Create your own recipe</h1>
          <div>
           <label>Title:</label>
@@ -68,7 +69,7 @@ export default function  Form() {
           {errors.title && (<p className="danger">{errors.title}</p>)}
          </div>
          <div>
-           <label>Optional Image:</label>
+           <label>Optional Image: </label>
           <input  type="text" name="image"
           placeholder="Write the image url here..." 
           onChange={(e => handleInputChange(e))}/>
@@ -96,18 +97,22 @@ export default function  Form() {
           <textarea type="text" name="steps"
           placeholder="Write the steps here..." 
           onChange={(e => handleInputChange(e))}/>
-          <div>
-            {dietTypes && dietTypes.map(e => {return (<div key={e.id}>
+            <div classname={style.centrar}>
+          <div className={style.subContainer}>
+            {dietTypes && dietTypes.map(e => {return (<div className={style.prueba}
+            key={e.id}>
             <label>{e.title}</label>
-            <input type="checkbox"
+            <input 
+            type="checkbox"
             value={e.title}
             name= {e.title}
             onChange={e => {handleCheckboxs(e)}} />
             </div>)})}
+            </div>
           </div>
          </div>
         
-        <Link to="/home"><button type="submit" disabled={errors.title}>Create Recipe</button></Link>
+        <Link to="/home"><button className={style.btn} type="submit" disabled={errors.title}>Create Recipe</button></Link>
        
        
       </form>

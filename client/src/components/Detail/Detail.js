@@ -18,9 +18,10 @@ export default function Detail() {
         <div className={style.subContainer}>
           <img src={recipeById.image}/>
           <div className={style.columnContainer}>
-            <h4>{`Diets:   "${recipeById.diets}"`}</h4>
-            <h4>{`Spoonacular Score: ${recipeById.points}`}</h4>
-            <h4>{`Health Score: ${recipeById.healthScore}`}</h4>
+            <h4>{`Diets:   "${recipeById.diets}."`}</h4>
+            <h4>{`Spoonacular Score: "${recipeById.points}".`}</h4>
+            <h4>{`Health Score: "${recipeById.healthScore}"".`}</h4>
+            <h4>{`Dish Types: "${recipeById.dishTypes}."`}</h4>
           </div>
        </div>
       <h4>Resume: <div dangerouslySetInnerHTML={{ __html: recipeById.summary }}/></h4>

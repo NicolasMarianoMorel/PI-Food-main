@@ -1,0 +1,97 @@
+.container {
+    border-radius: 1rem;
+    box-shadow: 0 1rem 1rem rgba(124, 124, 124, 0.493);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1.5rem;
+    overflow: hidden;
+    width: 15rem;
+    backdrop-filter: blur(0.4rem);
+    background-color: transparent;
+    border: .1rem solid rgba(124, 124, 124, 0.493);
+    color: rgba(255, 255, 255, 0.897);
+    width: 50%;
+    height: 50%;
+    font-family: 'Dancing Script', cursive;
+    font-size: 15px;
+    margin-left: 25%;
+    position: relative;
+  }
+  .container label{
+      display: block;
+      font-size: 20px;
+      width: 50%;
+      height: 30px;
+      color: rgba(255, 255, 255, 0.897);
+      font-weight: bold;
+      margin-left: 25%;
+  }
+  .container input{
+      display: block;
+    font-size: 20px;
+    width: 50%;
+    height: 30px;
+    color: rgba(255, 255, 255, 0.897);
+    font-weight: bold;
+    margin-left: 25%;
+}
+.container textarea {
+    display: block;
+    font-size: 20px;
+    width: 50%;
+    height: 30px;
+    color: rgba(255, 255, 255, 0.897);
+    font-weight: bold;
+    margin-left: 25%;
+}
+.subContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin-left: 7%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.subContainer label, input{
+    margin-left: 0px;
+}
+.centrar{
+    width: 80%;
+    margin: 0 auto;
+}
+.prueba{
+    display: flex;
+    flex-direction: row;
+     position: relative;
+     width: 45%;
+     height: 50px;
+     text-align: left;
+     margin-top: 15px;
+     margin-left: 0px;
+}
+.prueba input{
+    margin-left: 100px;
+    margin-right: 0px;
+    position: absolute;
+}
+
+.btn {
+    margin-left: 20px;
+    width: 20%;
+    height: 60%;
+    background-color: rgba(199, 144, 41, 0.897);
+    border: solid 1px rgba(133, 77, 13, 0.822);
+    color: white;
+    border-radius: 8px;
+    font-family: 'Dancing Script';
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+.btn:hover {
+    background-color: rgba(104, 73, 16, 0.897); ;
+}
+ 
