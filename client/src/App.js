@@ -1,4 +1,4 @@
-import './App.css';
+import styles from './App.module.css';
 import {Routes, Route} from "react-router-dom";
 import Landing from "./components/Landing/Landing.js";
 import Navbar from "./components/Navbar/Navbar.js";
@@ -9,7 +9,7 @@ import Form from "./components/Form/Form.js";
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.App}>
       <Routes>
         <Route path="/" element={<Landing />}/>
           <Route path="/*" element={<Navbar />} >

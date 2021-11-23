@@ -1,8 +1,9 @@
-import React,{ useState, useEffect } from 'react';
+import React,{ useState } from 'react';
 import Card from '../Card/Card.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllByTitle } from '../../actions/index.js'; 
 import { NavLink } from 'react-router-dom';
+import style from "./Cards.module.css";
 
 export default function Cards() {
   const recipes = useSelector((state) => state.recipes);
@@ -46,18 +47,23 @@ export default function Cards() {
   }
   
   return (
-    <div >
-          <div>
-            <input type="text" 
+    <div className={style.container}>
+      <div className={style.subContainer}>
+            <input className={style.search}
+            type="text" 
             placeholder="Search your recipe here"
             onChange={(e) => onSearchChange(e)} />
-            <button onClick={(e) => onSearchSubmit(e)}>Search</button>
+            <button className={style.btnSearch} onClick={(e) => onSearchSubmit(e)}>Search</button>
+            </div>
+          <div className={style.subContainer}>
+      <button className={style.btn} onClick={() => prevPage()}>Previous Page</button>
+      &nbsp;
+      <label className={style.actualPage}>{actualPage}</label>
+      &nbsp;
+      <button className={style.btn} onClick={() => nextPage()}>Next Page</button>
            </div>
-      <button onClick={() => prevPage()}>Previous Page</button>
-      &nbsp;
-      <button>{actualPage}</button>
-      &nbsp;
-      <button onClick={() => nextPage()}>Next Page</button>
+
+      <div className={style.cards}>
       {filtereds ? filtereds.map((r) => {
           let dietsArray = function() {
           let aux = [];
@@ -74,13 +80,16 @@ export default function Cards() {
            } 
         }
            
-      return (<NavLink to={`/recipes/${r.id}`}> <Card 
-          key={r.id}
-          title={r.title}
-          image={r.image}
-          diets={dietsArray()}
-          id={r.id}
-        /></NavLink>)}): <p>Loading...</p>}
+      return (
+        <NavLink className={style.navLink} to={`/recipes/${r.id}`}> <Card 
+        key={r.id}
+        title={r.title}
+        image={r.image}
+        diets={dietsArray()}
+        id={r.id}/>
+        </NavLink>
+      )}): <p>Loading...</p>}
+        </div>
       </div>
   );
 }

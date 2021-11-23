@@ -1,17 +1,17 @@
 import React from 'react';
 import { Outlet } from 'react-router';
-import './Navbar.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import style from './Navbar.module.css';
 
 /* const navigate = useNavigate(); */
 export default function NavBar() {
     return (
         <div>
-            <h1>Spoonacular Food App</h1>
-           {/*  <button onClick={() => navigate("/home")}>Home</button>
-            <button onClick={() => navigate("/form")}>Create Recipe</button> */}
-            <Link to="/home">Home </Link>
-            <Link to="/form"> Create Recipe</Link>
+            <div className={style.container}>
+            <h1 className={style.title}>Henry Food App</h1>
+            <NavLink to="/home"><button className={style.btn} >Home</button> </NavLink>
+            <NavLink to="/form"> <button className={style.btn}>Create Recipe</button></NavLink>
+            </div>
             <Outlet />
         </div>
     )

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { getAll, getTypes, getSorted } from '../../actions/index.js';
 import Cards from "../Cards/Cards.js";
+import style from "./Home.module.css";
 
 
 
@@ -49,22 +50,22 @@ function handleSubmit(event){
 }
 
   return (
-  <div>
-    <div>
-          <select  name="order" onChange={e => orderChange(e)}>
+  <div className={style.container}>
+    <div className={style.selects}>
+          <select className={style.options} name="order" onChange={e => orderChange(e)}>
              <option value="Increasing">Increasing</option>
              <option value="Decreasing">Decreasing</option>
           </select>
-          <select  name="type" onChange={e => typeChange(e)}>
+          <select className={style.options} name="type" onChange={e => typeChange(e)}>
              <option value="Alphabetical">Alphabetical</option>
              <option value="Score">Score</option>
           </select>
-          <select  name="diets" onChange={e => dietsChange(e)}>
+          <select className={style.options} name="diets" onChange={e => dietsChange(e)}>
           <option value="All">All</option>{
             dietTypes && dietTypes.map(el => {return <option value={el.title}>{el.title}</option>})
           }
           </select>
-          <button type="submit" onClick={event => {handleSubmit(event)}}>Reload</button>
+          <button className={style.btn} type="submit" onClick={event => {handleSubmit(event)}}>Reload</button>
  </div>
    <Cards/>
   </div>
