@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { connectAdvanced, useDispatch, useSelector } from 'react-redux'
 import { getTypes, postRecipe } from '../../actions';
 import { useNavigate } from 'react-router-dom';
 import style from "./Form.module.css";
@@ -46,8 +46,9 @@ export default function  Form() {
   
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    dispatch(postRecipe(input))
     alert("Recipe has been created sucessfully")
+    dispatch(postRecipe(input))
+
       setInput({
       ...input,
       title: '',
@@ -88,6 +89,7 @@ export default function  Form() {
           <input  type="number" name="healthScore"
           placeholder="Write the health score here..." 
           onChange={(e => handleInputChange(e))}/>
+          {errors.healthScore && (<p className={style.danger}>{errors.healthScore}</p>)}
         </div>
         <div>
          <div>
@@ -95,6 +97,7 @@ export default function  Form() {
           <textarea  type="text" name="summary"
           placeholder="Write the summary here..." 
           onChange={(e => handleInputChange(e))}/>
+          {errors.summary && (<p className={style.danger}>{errors.summary}</p>)}
           </div>
           <label>Steps:</label>
           <textarea type="text" name="steps"
@@ -117,7 +120,8 @@ export default function  Form() {
         
         <button className={style.btn}
         onClick={(e) => handleOnSubmit(e)}
-        type="submit" disabled={errors.title}>Create Recipe</button>
+        type="submit" 
+        disabled={errors.title || errors.healthScore || errors.summary}>Create Recipe</button>
        
        
       </form>
@@ -129,6 +133,12 @@ export function validate(input) {
     errors.title = 'Title is required';
   } else if (!/^[a-zA-Z]?\s?[a-zA-Z]/.test(input.title)) {
     errors.title = 'Title has to be an alphabetic value';
+  }
+  if (!input.healthScore) {
+    errors.healthScore = 'Health Score is required';
+  }
+  if (!input.summary) {
+    errors.summary = 'Summary is required';
   }
  
     return errors;

@@ -15,13 +15,14 @@ const [order, setOrder] = useState("Increasing");
 const [type, setType] = useState("Alphabetical");
 const [diets, setDiets] = useState("All");
 
+
   useEffect(()=>{
     dispatch(getAll());
     dispatch(getTypes())
-},[]);
-
-useEffect(()=>{
- (allRecipes.length) && dispatch(getSorted({
+  },[]);
+  
+  useEffect(()=>{
+  (allRecipes.length) && dispatch(getSorted({
   order,
   type,
   diets
@@ -42,7 +43,7 @@ const dietsChange = (e) => {
 }
 function handleSubmit(event){
   event.preventDefault();
-  dispatch(getSorted({
+   dispatch(getSorted({
     order,
     type,
     diets

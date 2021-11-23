@@ -99,7 +99,7 @@
     margin-bottom: 15px;
     align-self: center;
 }
-.btn:hover {
+.btn:enabled:hover {
    background-color: rgba(104, 73, 16, 0.897); ;
 }
  

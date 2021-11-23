@@ -59,10 +59,12 @@ const initialState = {
         return 0
         })} else {
           sortedRecipes = sortedRecipes.sort((a, b) => {
-            if(a.title > b.title) {
+            const titleA = a.title.toLowerCase();
+            const titleB = b.title.toLowerCase();
+            if(titleA > titleB) {
               return payload.order === "Increasing" ? 1 : -1
              }
-            if(a.title < b.title)  {
+            if(titleA < titleB)  {
               return payload.order === "Increasing" ? -1 : 1
              }
           return 0;
