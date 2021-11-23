@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { getTypes, postRecipe } from '../../actions';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import style from "./Form.module.css";
 
 export default function  Form() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   useEffect(()=>{
     dispatch(getTypes())
 },[]);
@@ -42,10 +43,11 @@ export default function  Form() {
       })
   }
   }
+  
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    alert("Recipe has been created sucessfully")
     dispatch(postRecipe(input))
+    alert("Recipe has been created sucessfully")
       setInput({
       ...input,
       title: '',
@@ -56,17 +58,18 @@ export default function  Form() {
       steps: "",
       diets: [],
       })
+      navigate('../home');
     }
     
     return (
-      <form className={style.container} onSubmit={(e) => handleOnSubmit(e)}>
+      <form className={style.container} >
            <h1>Create your own recipe</h1>
          <div>
           <label>Title:</label>
-          <input className= {errors.title && "danger"} type="text" name="title"
+          <input type="text" name="title"
           placeholder="Write the title here..." 
           onChange={(e => handleInputChange(e))}/>
-          {errors.title && (<p className="danger">{errors.title}</p>)}
+          {errors.title && (<p className={style.danger}>{errors.title}</p>)}
          </div>
          <div>
            <label>Optional Image: </label>
@@ -97,7 +100,7 @@ export default function  Form() {
           <textarea type="text" name="steps"
           placeholder="Write the steps here..." 
           onChange={(e => handleInputChange(e))}/>
-            <div classname={style.centrar}>
+            <div >
           <div className={style.subContainer}>
             {dietTypes && dietTypes.map(e => {return (<div className={style.prueba}
             key={e.id}>
@@ -112,7 +115,9 @@ export default function  Form() {
           </div>
          </div>
         
-        <Link to="/home"><button className={style.btn} type="submit" disabled={errors.title}>Create Recipe</button></Link>
+        <button className={style.btn}
+        onClick={(e) => handleOnSubmit(e)}
+        type="submit" disabled={errors.title}>Create Recipe</button>
        
        
       </form>

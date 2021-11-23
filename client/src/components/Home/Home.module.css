@@ -10,29 +10,31 @@
     flex-direction: row;
     justify-content: space-between;
     align-self: center;
-    border: 2px solid gray;
+    border: 1px solid rgba(199, 121, 32, 0.822);
     border-radius: 8px;
     padding: 10px;
-    background-color: #30323681;
+    background-color: #7a204d98;
 }
 .options{
     margin-left: 20px;
     width: 150px;
-    background-color: #303236e0;
+    background-color: #8f3d6680;
     color: white;
     font-size: 15px;
+    border: 1px solid rgba(199, 121, 32, 0.822);
+    border-radius: 8px;
 }
 .btn {
     margin-left: 20px;
     width: 20%;
     height: 60%;
-    background-color: rgba(179, 37, 37, 0.897);
-    border: solid 1px rgba(133, 77, 13, 0.822);
+    background-color: rgba(233, 168, 49, 0.897);
+    border: solid 1px rgba(199, 121, 32, 0.822);
     color: white;
     border-radius: 8px;
     font-family: 'Dancing Script';
     font-size: 15px;
 }
 .btn:hover {
-    background-color: rgba(112, 8, 8, 0.897); ;
+    background-color: rgba(104, 73, 16, 0.897);
 }

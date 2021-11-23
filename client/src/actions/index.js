@@ -40,6 +40,6 @@ export function getById(id) {
 export function postRecipe(payload) {
   return async function(dispatch) {
   const post = await axios.post(`http://localhost:3001/recipe`, payload);
-  return post;
+  return dispatch({type: POST_RECIPE, payload: post.data})
 }
 }

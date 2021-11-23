@@ -51,7 +51,7 @@ export default function Cards() {
       <div className={style.subContainer}>
             <input className={style.search}
             type="text" 
-            placeholder="Search your recipe here"
+            placeholder="Search your recipe here..."
             onChange={(e) => onSearchChange(e)} />
             <button className={style.btnSearch} onClick={(e) => onSearchSubmit(e)}>Search</button>
             </div>
@@ -67,7 +67,7 @@ export default function Cards() {
       {filtereds ? filtereds.map((r) => {
           let dietsArray = function() {
           let aux = [];
-           if(r.diets.length <= 0) return aux = "No incluye dietas";
+           if(r.diets.length <= 0) return aux = "No diets available";
           else if(r.diets[0].title){
             aux = r.diets.map(el => {
             return el.title

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { getById } from '../../actions';
 import { useParams } from 'react-router';
@@ -11,12 +11,12 @@ export default function Detail() {
     dispatch(getById(id));
   },[]);
   const recipeById = useSelector((state) => state.recipeById);
-   console.log(recipeById)
+   
       return (
       <div className={style.container} >
        <h2>{`${recipeById.title}`}</h2>
         <div className={style.subContainer}>
-          <img src={recipeById.image}/>
+          <img src={recipeById.image} alt="not found"/>
           <div className={style.columnContainer}>
             <h4>{`Diets:   "${recipeById.diets}."`}</h4>
             <h4>{`Spoonacular Score: "${recipeById.points}".`}</h4>
@@ -24,8 +24,8 @@ export default function Detail() {
             <h4>{`Dish Types: "${recipeById.dishTypes}."`}</h4>
           </div>
        </div>
-      <h4>Resume: <div dangerouslySetInnerHTML={{ __html: recipeById.summary }}/></h4>
-      <h5>Steps: <div dangerouslySetInnerHTML={{ __html: recipeById.steps }}/></h5>
+      <h4 className={style.summaryStep}>Resume: <div dangerouslySetInnerHTML={{ __html: recipeById.summary }}/></h4>
+      <h4 className={style.summaryStep}>Steps: <div dangerouslySetInnerHTML={{ __html: recipeById.steps }}/></h4>
   </div>
   );
 }

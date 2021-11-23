@@ -7,23 +7,24 @@
     margin: 1.5rem;
     overflow: hidden;
     width: 15rem;
-    backdrop-filter: blur(0.4rem);
+    backdrop-filter: blur(0.5rem);
     background-color: transparent;
     border: .1rem solid rgba(124, 124, 124, 0.493);
-    color: rgba(255, 255, 255, 0.897);
+    color: rgba(143, 32, 84, 0.986);
     width: 50%;
     height: 50%;
     font-family: 'Dancing Script', cursive;
     font-size: 15px;
     margin-left: 25%;
     position: relative;
+    text-shadow: 1.5px 1.5px rgba(216, 205, 210, 0.986);
   }
   .container label{
       display: block;
       font-size: 20px;
       width: 50%;
       height: 30px;
-      color: rgba(255, 255, 255, 0.897);
+      color: rgba(143, 32, 84, 0.986);
       font-weight: bold;
       margin-left: 25%;
   }
@@ -32,8 +33,8 @@
     font-size: 20px;
     width: 50%;
     height: 30px;
-    color: rgba(255, 255, 255, 0.897);
-    font-weight: bold;
+    color: rgba(143, 32, 84, 0.986);
+    
     margin-left: 25%;
 }
 .container textarea {
@@ -41,9 +42,12 @@
     font-size: 20px;
     width: 50%;
     height: 30px;
-    color: rgba(255, 255, 255, 0.897);
-    font-weight: bold;
+    color: rgba(143, 32, 84, 0.986);
     margin-left: 25%;
+}
+.danger{
+    color: rgb(218, 21, 21);
+    border: rgb(218, 21, 21);
 }
 .subContainer{
     display: flex;
@@ -55,9 +59,12 @@
     margin-left: 7%;
     margin-top: 10px;
     margin-bottom: 10px;
+    
 }
 .subContainer label, input{
     margin-left: 0px;
+    font-size: 23px;
+    text-shadow: 1.5px 1.5px rgba(216, 205, 210, 0.986);
 }
 .centrar{
     width: 80%;
@@ -90,8 +97,9 @@
     font-family: 'Dancing Script';
     font-size: 15px;
     margin-bottom: 15px;
+    align-self: center;
 }
 .btn:hover {
-    background-color: rgba(104, 73, 16, 0.897); ;
+   background-color: rgba(104, 73, 16, 0.897); ;
 }
  
