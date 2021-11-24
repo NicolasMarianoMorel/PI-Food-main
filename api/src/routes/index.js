@@ -17,7 +17,7 @@ router.get(`/recipes`, async function(req, res){
   try{
   const {title} = req.query;
  
-  let getApiCall = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${title || ""}&number=100&addRecipeInformation=true&apiKey=${SECTAPI_KEY}`);
+  let getApiCall = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${title || ""}&number=100&addRecipeInformation=true&apiKey=${SEPTAPI_KEY}`);
   //me quedo con los datos brutos en un array
   let apiData= getApiCall.data.results
   //me quedo solo con la informacion que necesito
@@ -84,7 +84,7 @@ catch(error) {
     
     try {
       if (id.length < 20) {
-      let getApiCall =  await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${SECTAPI_KEY}`);
+      let getApiCall =  await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${SEPTAPI_KEY}`);
       let apiInfo = getApiCall.data
       let receta = {
         dishTypes: apiInfo.dishTypes,
