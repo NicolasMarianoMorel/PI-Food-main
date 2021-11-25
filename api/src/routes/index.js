@@ -23,8 +23,8 @@ router.get(`/recipes`, async function(req, res){
   //me quedo solo con la informacion que necesito
   let receta = apiData.map(el => {
       return {
-        vegetarian: el.vegetarian,
-        id: el.id,
+      vegetarian: el.vegetarian,
+      id: el.id,
       diets: el.diets,
       title: el.title,
       summary: el.summary,
@@ -111,6 +111,7 @@ catch(error) {
         through: {attributes: []}
         }})
       let infoDb = {
+          dishTypes: dbInfo.dataValues.dishTypes,
           id: dbInfo.dataValues.id,
           title: dbInfo.dataValues.title,
           steps: dbInfo.dataValues.steps,
@@ -160,8 +161,8 @@ catch(error) {
 //---------------------------------------------------------------------------------------
 router.post('/recipe', async function(req, res){
    try {
-      const {title, summary, score, healthScore, steps, image, createdInDb, diets} = req.body;
-     
+      const {title, summary, score, healthScore, steps, image, dishTypes, createdInDb, diets} = req.body;
+     console.log(dishTypes)
      let recipeCreated = await Recipe.create({
           title,
           summary,
@@ -169,6 +170,7 @@ router.post('/recipe', async function(req, res){
           healthScore,
           steps,
           image,
+          dishTypes,
           createdInDb
       })
       let dietTypesDb = await Diets.findAll({

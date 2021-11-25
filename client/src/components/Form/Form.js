@@ -16,6 +16,7 @@ export default function  Form() {
     title: '',
     score: 0,
     healthScore: 0,
+    dishTypes: "",
     image: "https://thecrites.com/sites/all/modules/cookbook/theme/images/default-recipe-big.png",
     summary: '',
     steps: "",
@@ -54,6 +55,7 @@ export default function  Form() {
       title: '',
       score: 0,
       healthScore: 0,
+      dishTypes: "",
       image: "https://thecrites.com/sites/all/modules/cookbook/theme/images/default-recipe-big.png",
       summary: '',
       steps: "",
@@ -73,12 +75,6 @@ export default function  Form() {
           {errors.title && (<p className={style.danger}>{errors.title}</p>)}
          </div>
          <div>
-           <label>Optional Image: </label>
-          <input  type="text" name="image"
-          placeholder="Write the image url here..." 
-          onChange={(e => handleInputChange(e))}/>
-          </div>
-        <div>
           <label>Score:</label>
           <input  type="number" name="score"
           placeholder="Write the score here..." 
@@ -91,6 +87,18 @@ export default function  Form() {
           onChange={(e => handleInputChange(e))}/>
           {errors.healthScore && (<p className={style.danger}>{errors.healthScore}</p>)}
         </div>
+        <div>
+          <label>Dish Type:</label>
+          <input  type="text" name="dishTypes"
+          placeholder="Write the dish type here..." 
+          onChange={(e => handleInputChange(e))}/>
+        </div>
+        <div>
+           <label>Optional Image: </label>
+          <input  type="text" name="image"
+          placeholder="Write the image url here..." 
+          onChange={(e => handleInputChange(e))}/>
+          </div>
         <div>
          <div>
           <label>Dish Summary:</label>

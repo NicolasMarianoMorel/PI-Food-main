@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllByTitle } from '../../actions/index.js'; 
 import { NavLink } from 'react-router-dom';
 import style from "./Cards.module.css";
+import img from "../img/loading.gif";
 
 export default function Cards() {
   const recipes = useSelector((state) => state.recipes);
@@ -61,11 +62,12 @@ export default function Cards() {
             <button className={style.btnSearch} onClick={(e) => onSearchSubmit(e)}>Search</button>
             </div>
           <div className={style.subContainer}>
-      <button className={style.btn} onClick={() => prevPage()}>Previous Page</button>
-      &nbsp;
-      <label className={style.actualPage}>{actualPage}</label>
-      &nbsp;
-      <button className={style.btn} onClick={() => nextPage()}>Next Page</button>
+    <img src="https://img.icons8.com/fluency/50/000000/circled-chevron-left.png" className={style.icons}
+    onClick={() => prevPage()}/> 
+    <label className={style.actualPage}>{actualPage}</label>
+    <img src="https://img.icons8.com/fluency/50/000000/circled-chevron-right.png" className={style.icons}
+    onClick={() => nextPage()}/>
+
            </div>
 
       <div className={style.cards}>
@@ -93,7 +95,7 @@ export default function Cards() {
         diets={dietsArray()}
         id={r.id}/>
         </NavLink>
-      )}): <p>Loading...</p>}
+      )}): <img className={style.loading} src={img}/>}
         </div>
       </div>
   );
