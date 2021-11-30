@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { connectAdvanced, useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getTypes, postRecipe } from '../../actions';
 import { useNavigate } from 'react-router-dom';
 import style from "./Form.module.css";

@@ -40,16 +40,15 @@
     backdrop-filter: blur(0.5rem);
 }
 .btnSearch{
-    
-    width: 80px;
-    height: 28px;
+    width: 120px;
+    height: 30px;
     background-color: rgba(233, 168, 49, 0.897);
     border: solid 1px rgba(199, 121, 32, 0.822);
     color: white;
     border-radius: 8px;
     font-family: 'Dancing Script';
     font-size: 15px;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 .btnSearch:hover {
     background-color: rgba(104, 73, 16, 0.897);

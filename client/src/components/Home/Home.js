@@ -8,18 +8,16 @@ import style from "./Home.module.css";
 
 export default function Home() {
 const dispatch = useDispatch();
-const recipes = useSelector((state) => state.recipes);
 const allRecipes = useSelector((state) => state.allRecipes);
 const dietTypes = useSelector((state) => state.dietTypes);
 const [order, setOrder] = useState("Increasing");
 const [type, setType] = useState("Alphabetical");
 const [diets, setDiets] = useState("All");
 
-
   useEffect(()=>{
     dispatch(getAll());
     dispatch(getTypes())
-  },[]);
+  },[dispatch]);
   
   useEffect(()=>{
   (allRecipes.length) && dispatch(getSorted({
@@ -46,7 +44,7 @@ function handleSubmit(event){
    dispatch(getSorted({
     order,
     type,
-    diets
+    diets,
   }))
 }
 
@@ -62,7 +60,8 @@ function handleSubmit(event){
              <option value="Score">Score</option>
           </select>
           <select className={style.options} name="diets" onChange={e => dietsChange(e)}>
-          <option value="All">All</option>{
+          <option value="All">All</option>
+          <option value="healthScore">healthScore</option>{
             dietTypes && dietTypes.map(el => {return <option value={el.title}>{el.title}</option>})
           }
           </select>

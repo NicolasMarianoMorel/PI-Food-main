@@ -14,15 +14,11 @@ export default function Cards() {
   const [actualPage, setActualPage] = useState(1);
   const dispatch = useDispatch();
   
-  useEffect(()=>{
-    setActualPage(0)
-    setActualPage(1)
-  },[recipes]);
-
+   
   const filteredRecipes = () => {
-      if (searchSubmit.length === 0) {
-        return (recipes.length) && recipes.slice(currentPage, currentPage + 9)
-      }
+    if (searchSubmit.length === 0) {
+      return (recipes.length) && recipes.slice(currentPage, currentPage + 9)
+    }
     else{
       dispatch(getAllByTitle(searchSubmit));
       setSearchSubmit("");
@@ -30,10 +26,13 @@ export default function Cards() {
     }
   }
   const filtereds = filteredRecipes();
+  const refreshPage = ()=>{ window.location.reload() }
   
   const nextPage = () => {
-        setCurrentPage(currentPage + 9)
-        setActualPage(actualPage + 1)
+    if(actualPage < Math.ceil(recipes.length / 9)) {
+      setCurrentPage(currentPage + 9)
+      setActualPage(actualPage + 1)
+    }
   }
   const prevPage = () => {
     if(currentPage > 0) {
@@ -50,6 +49,7 @@ export default function Cards() {
     setCurrentPage(0); 
     setSearchSubmit(search);
     setSearch("");
+   
   }
   
   return (
@@ -60,6 +60,7 @@ export default function Cards() {
             placeholder="Search your recipe here..."
             onChange={(e) => onSearchChange(e)} />
             <button className={style.btnSearch} onClick={(e) => onSearchSubmit(e)}>Search</button>
+            <button  onClick={refreshPage} className={style.btnSearch}> Reset filter </button>
             </div>
           <div className={style.subContainer}>
     <img src="https://img.icons8.com/fluency/50/000000/circled-chevron-left.png" className={style.icons}

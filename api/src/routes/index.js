@@ -17,7 +17,7 @@ router.get(`/recipes`, async function(req, res){
   try{
   const {title} = req.query;
  
-  let getApiCall = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${title || ""}&number=100&addRecipeInformation=true&apiKey=${SEPTAPI_KEY}`);
+  let getApiCall = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${title || ""}&number=100&addRecipeInformation=true&apiKey=${TERAPI_KEY}`);
   //me quedo con los datos brutos en un array
   let apiData= getApiCall.data.results
   //me quedo solo con la informacion que necesito
@@ -53,22 +53,28 @@ router.get(`/recipes`, async function(req, res){
     })
   }
 }
-/* let infoDb = {
-  id: dbInfo.dataValues.id,
-  title: dbInfo.dataValues.title,
-  summary: dbInfo.dataValues.summary,
-  points: dbInfo.dataValues.points,
-  healthScore: dbInfo.dataValues.healthScore,
-  image: dbInfo.dataValues.image,
-  createdInDb: dbInfo.dataValues.createdInDb,
-  diets: dbInfo.dataValues.diets.map(el => {
-    return el.title
-  })
-} */
-const getAll = async () => {
-  let apiInfo = receta;
-  let dbInfo = await getDbInfo();
-    const info = dbInfo.concat(apiInfo);
+
+let dbInfo = await getDbInfo();
+
+let maped = dbInfo.map(el =>{
+  return {
+    dishTypes: el.dishTypes,
+    id: el.id,
+    title: el.title,
+    steps: el.steps,
+    summary: el.summary,
+    points: el.points,
+    healthScore: el.healthScore,
+    image: el.image,
+    createdInDb: el.createdInDb,
+    diets: el.diets.map(el => {
+      return el.title
+    })
+  }})
+  
+    const getAll = async () => {
+    let apiInfo = receta;
+    const info = apiInfo.concat(maped);
      info ? res.json(info) : res.status(401).send("Recipe not found")
   }
   getAll();
@@ -84,7 +90,7 @@ catch(error) {
     
     try {
       if (id.length < 20) {
-      let getApiCall =  await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${SEPTAPI_KEY}`);
+      let getApiCall =  await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${TERAPI_KEY}`);
       let apiInfo = getApiCall.data
       let receta = {
         dishTypes: apiInfo.dishTypes,
@@ -162,7 +168,7 @@ catch(error) {
 router.post('/recipe', async function(req, res){
    try {
       const {title, summary, score, healthScore, steps, image, dishTypes, createdInDb, diets} = req.body;
-     console.log(dishTypes)
+     
      let recipeCreated = await Recipe.create({
           title,
           summary,
