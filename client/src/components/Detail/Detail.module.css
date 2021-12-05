@@ -7,13 +7,13 @@
   margin: 1.5rem;
   overflow: hidden;
   width: 15rem;
-  backdrop-filter: blur(0.5rem);
-  background-color: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(0.3rem);
+  background-color: rgba(250, 250, 250, 0.219);
   border: .1rem solid rgba(124, 124, 124, 0.493);
   color: rgba(238, 135, 18, 0.897);
   width: 80%;
   height: 80%;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Roboto', sans-serif;
   font-size: 30px;
   margin-left: 130px;
   text-shadow: 1.5px 1.5px rgba(216, 205, 210, 0.986);

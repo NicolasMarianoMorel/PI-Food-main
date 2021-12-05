@@ -22,7 +22,7 @@
     border-radius: 10px;
     background-color: transparent;
     color: rgba(145, 47, 92, 0.658);
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 20px;
     
@@ -46,9 +46,10 @@
     border: solid 1px rgba(199, 121, 32, 0.822);
     color: white;
     border-radius: 8px;
-    font-family: 'Dancing Script';
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     margin-left: 10px;
+    margin-top: 3px;
 }
 .btnSearch:hover {
     background-color: rgba(104, 73, 16, 0.897);
@@ -61,7 +62,7 @@
     border: solid 1px rgba(199, 121, 32, 0.822);
     color: white;
     border-radius: 8px;
-    font-family: 'Dancing Script';
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     
 }

@@ -7,13 +7,13 @@
     margin: 1.5rem;
     overflow: hidden;
     width: 15rem;
-    backdrop-filter: blur(0.5rem);
+    backdrop-filter: blur(0.2rem);
     background-color: transparent;
-    border: .1rem solid rgba(124, 124, 124, 0.493);
+    border: .1rem solid rgba(199, 121, 32, 0.568);
     color: rgba(143, 32, 84, 0.986);
     width: 50%;
     height: 50%;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     margin-left: 25%;
     position: relative;
@@ -94,7 +94,7 @@
     border: solid 1px rgba(133, 77, 13, 0.822);
     color: white;
     border-radius: 8px;
-    font-family: 'Dancing Script';
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     margin-bottom: 15px;
     align-self: center;

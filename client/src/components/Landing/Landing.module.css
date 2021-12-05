@@ -16,7 +16,7 @@
     margin-top: 40px;
     font-size: 50px;
     padding-bottom: 10px;
-    font-family: 'Dancing Script', cursive; 
+    font-family: 'Roboto', sans-serif; 
     border-radius: 1rem;
     box-shadow: 0 1rem 1rem rgba(124, 124, 124, 0.493);
     display: flex;
@@ -47,7 +47,7 @@
     color: rgba(250, 248, 248, 0.767);
     padding: 0px;
     margin: 0px;
-    font-family: 'Dancing Script', cursive; 
+    font-family: 'Roboto', sans-serif;
 }
 .image{
     width: 40%;
@@ -65,7 +65,7 @@
     color: white;
     border-radius: 8px;
     font-size: 25px;
-    font-family: 'Dancing Script', cursive; 
+    font-family: 'Roboto', sans-serif; 
 }
 .btn:hover {
     background-color: rgba(112, 8, 8, 0.897); ;

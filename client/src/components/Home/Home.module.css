@@ -13,7 +13,7 @@
     border: 1px solid rgba(199, 121, 32, 0.822);
     border-radius: 8px;
     padding: 10px;
-    background-color: #7a204d98;
+    background-color: #7a204db6;
 }
 .options{
     margin-left: 20px;
@@ -32,7 +32,7 @@
     border: solid 1px rgba(199, 121, 32, 0.822);
     color: white;
     border-radius: 8px;
-    font-family: 'Dancing Script';
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
 }
 .btn:hover {
